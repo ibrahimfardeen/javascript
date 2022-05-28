@@ -1,0 +1,12 @@
+function myFunction() {
+ const x = "sample output";
+ var fname = document.getElementById("fname").value;
+ var lname = document.getElementById("lname").value;
+ var pnum = document.getElementById("pnum").value;
+ var dob = document.getElementById("dob").value;
+   console.log(x);
+   console.log("first name :" + fname);
+   console.log("last name :" + lname);
+   console.log("phone number :" + pnum);
+   console.log("date of birth :" + dob);
+}
