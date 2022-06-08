@@ -1,31 +1,69 @@
 submitButton.onclick = function Validate(){
+        
+    var firstName = document.getElementById("firstName").value;
+    var lastName  = document.getElementById("lastName").value;
+    var pnum      = document.getElementById("phnum").value;
+    var dob       = document.getElementById("dob").value;
+    var givenDate = new Date(dob);
+    var today     = new Date();
     
-    
-    var firstName = document.getElementById("firstNameTextBox").value;
-    var lastName = document.getElementById("lastNameTextBox").value;
-    var pnum = document.getElementById("phnumBox").value;
-    var dob = document.getElementById("dobBox").value;
     if(firstName == ''){
-        alert("First Name is Required");
-        return;
-    };
-    if(lastName == ''){    
-       alert("Last Name Required"); 
+       alert("First Name is Required");
        return;
-    };    
-    if( pnum == ''){
-     alert("Mobile Number is Required");
-     return;
-     };     
-     if( dob == ''){
-     alert("Date of Birth is Required");
-     return;    
-    };
-    if(firstName !='' && lastName != '' && pnum != '' && dob != ''){
-    console.log("Sample Output : ")
-    console.log("First Name : " +firstName);
-    console.log("Last Name : " +lastName);
-    console.log("Mobile Number : " +pnum);
-    console.log("Date of Birth : " +dob);
-    };
+    }
+    if(firstName.length < 3){
+       alert("Invalid First Name");
+       return;
+    }
+    if(lastName == ''){
+       alert("Last Name Required");
+       return;
+    }
+    if(lastName.length < 3){
+       alert("Invalid Last Name");
+       return;
+    }
+    if(pnum == ''){
+       alert("Mobile Number is Required");
+       return;
+    }    
+    if(pnum.length != 10){
+       alert("Invalid Mobile Number");
+       return;
+    }
+    if(dob == ''){
+       alert("Date of Birth is Required");
+       return;
+    } 
+    if(givenDate > today){
+       alert("Invalid Date of Birth");
+       return;
+    }
+    if(givenDate.getDate()     ==  today.getDate()&&
+       givenDate.getMonth()    ==  today.getMonth()&&
+       givenDate.getFullYear() ==  today.getFullYear()  ){
+    
+       alert("Invalid Date of Birth");
+       return;
+    }
+    
+    
+    if(firstName               !=  ''                 &&
+       lastName                !=  ''                 &&
+       pnum                    !=  ''                 &&
+       dob                     !=  ''                 &&
+       firstName.length         >  3                  &&
+       lastName.length          >  3                  &&
+       pnum.length             ==  10                 &&
+       givenDate                <  today              &&
+       givenDate.getDate()     !=  today.getDate()    ||
+       givenDate.getMonth()    !=  today.getMonth()   ||
+       givenDate.getFullYear() !=  today.getFullYear()  ){
+       
+       console.log("Sample Output : "             );
+       console.log("First Name : "    + firstName );
+       console.log("Last Name : "     + lastName  );
+       console.log("Mobile Number : " + pnum      );
+       console.log("Date of Birth : " + dob       );
+    }
 };
