@@ -60,10 +60,15 @@ submitButton.onclick = function Validate(){
        givenDate.getMonth()    !=  today.getMonth()   ||
        givenDate.getFullYear() !=  today.getFullYear()  ){
        
-       console.log("Sample Output : "             );
-       console.log("First Name : "    + firstName );
-       console.log("Last Name : "     + lastName  );
-       console.log("Mobile Number : " + pnum      );
-       console.log("Date of Birth : " + dob       );
+       let array = [];
+       const form1 ={"First Name":"","Last Name":"","Mobile Number":'',"Date of Birth":''};
+       form1["First Name"] = firstName;
+       form1["Last Name"] = lastName;
+       form1["Mobile Number"] = pnum;
+       form1["Date of Birth"] = dob;
+       array.push(form1);
+       console.log(array);
+       console.log(typeof(array));       
+       return alert("ValuesInserted");
     }
 };
