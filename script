@@ -1,83 +1,79 @@
 let array = [];
-const form = (ev)=>{
-    ev.preventDefault();
-        
-    var firstName = document.getElementById("firstName").value;
-    var lastName  = document.getElementById("lastName").value;
-    var pnum      = document.getElementById("phnum").value;
-    var dob       = document.getElementById("dob").value;
-    var givenDate = new Date(dob);
-    var today     = new Date();
+function addData() {
+  console.log('Add data');
+  var firstName = document.getElementById("firstName").value;
+  var lastName = document.getElementById("lastName").value;
+  var pnum = document.getElementById("phnum").value;
+  var dob = document.getElementById("dob").value;
+  var givenDate = new Date(dob);
+  var today = new Date();
+
+  if (firstName == '') {
+    alert("First Name is Required");
+    return;
+  }
+  if (firstName.length < 3) {
+    alert("Invalid First Name");
+    return;
+  }
+  if (lastName == '') {
+    alert("Last Name Required");
+    return;
+  }
+  if (lastName.length < 3) {
+    alert("Invalid Last Name");
+    return;
+  }
+  if (pnum == '') {
+    alert("Mobile Number is Required");
+    return;
+  }
+  if (pnum.length != 10) {
+    alert("Invalid Mobile Number");
+    return;
+  }
+  if (dob == '') {
+    alert("Date of Birth is Required");
+    return;
+  }
+  if (givenDate > today) {
+    alert("Invalid Date of Birth");
+    return;
+  }
+  if (givenDate.getDate() == today.getDate() &&
+    givenDate.getMonth() == today.getMonth() &&
+    givenDate.getFullYear() == today.getFullYear()) {
+
+    alert("Invalid Date of Birth");
+    return;
+  }
+
+
+  if (firstName != '' &&
+    lastName != '' &&
+    pnum != '' &&
+    dob != '' &&
+    firstName.length > 3 &&
+    lastName.length > 3 &&
+    pnum.length == 10 &&
+    givenDate < today &&
+    givenDate.getDate() != today.getDate() ||
+    givenDate.getMonth() != today.getMonth() ||
+    givenDate.getFullYear() != today.getFullYear()) {
+
+    let form1 = {
+
+      First_Name: firstName,
+      Last_Name: lastName,
+      Mobile_Number: pnum,
+      Date_of_Birth: dob
+
+    };
+
+    array.push(form1);
+    alert("Values Inserted");
+    document.getElementById("x").reset();
+    console.log(array);
     
-    if(firstName == ''){
-       alert("First Name is Required");
-       return;
-    }
-    if(firstName.length < 3){
-       alert("Invalid First Name");
-       return;
-    }
-    if(lastName == ''){
-       alert("Last Name Required");
-       return;
-    }
-    if(lastName.length < 3){
-       alert("Invalid Last Name");
-       return;
-    }
-    if(pnum == ''){
-       alert("Mobile Number is Required");
-       return;
-    }    
-    if(pnum.length != 10){
-       alert("Invalid Mobile Number");
-       return;
-    }
-    if(dob == ''){
-       alert("Date of Birth is Required");
-       return;
-    } 
-    if(givenDate > today){
-       alert("Invalid Date of Birth");
-       return;
-    }
-    if(givenDate.getDate()     ==  today.getDate()&&
-       givenDate.getMonth()    ==  today.getMonth()&&
-       givenDate.getFullYear() ==  today.getFullYear()  ){
-    
-       alert("Invalid Date of Birth");
-       return;
-    }
-    
-    
-    if(firstName               !=  ''                 &&
-       lastName                !=  ''                 &&
-       pnum                    !=  ''                 &&
-       dob                     !=  ''                 &&
-       firstName.length         >  3                  &&
-       lastName.length          >  3                  &&
-       pnum.length             ==  10                 &&
-       givenDate                <  today              &&
-       givenDate.getDate()     !=  today.getDate()    ||
-       givenDate.getMonth()    !=  today.getMonth()   ||
-       givenDate.getFullYear() !=  today.getFullYear()  ){
-       
-       let form1 = {
-       
-       First_Name    : firstName,
-       Last_Name     : lastName,
-       Mobile_Number : pnum,
-       Date_of_Birth : dob
-         
-       };
-      
-       array.push(form1);
-       alert("Values Inserted");
-       document.getElementById("x").reset();
-       console.log(array);   
-       }
-       }
-            
-      document.addEventListener('DOMContentLoaded', ()=>{
-      document.getElementById('btn').addEventListener('click', form)
-      });
+  }
+}
