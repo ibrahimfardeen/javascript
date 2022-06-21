@@ -1,6 +1,5 @@
 let array = [];
-function addData() {
-  console.log('Add data');
+y.onclick = function addData() {
   var firstName = document.getElementById("firstName").value;
   var lastName = document.getElementById("lastName").value;
   var pnum = document.getElementById("phnum").value;
@@ -71,9 +70,13 @@ function addData() {
     };
 
     array.push(form1);
+    console.log('Add data');
     alert("Values Inserted");
     document.getElementById("x").reset();
     console.log(array);
-    
+    document.getElementById("a").innerHTML = form1.First_Name;
+    document.getElementById("b").innerHTML = form1.Last_Name;
+    document.getElementById("c").innerHTML = form1.Mobile_Number;
+    document.getElementById("d").innerHTML = form1.Date_of_Birth;
   }
 }
