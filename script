@@ -78,42 +78,39 @@ y.onclick = function addData() {
     return AddRow();
     }
     }
-    
     var list1 = [];
-		var list2 = [];
-		var list3 = [];
-		var list4 = [];
-
-		var n = 1;
-		var x = 0;
-
-		function AddRow(){
-
-			var AddRown = document.getElementById('formData');
-			var NewRow = AddRown.insertRow(n);
-
-			list1[x] = form1.First_Name;
-			list2[x] = form1.Last_Name;
-			list3[x] = form1.Mobile_Number;
-			list4[x] = form1.Age;
-
-			var cel1 = NewRow.insertCell(0);
-			var cel2 = NewRow.insertCell(1);
-			var cel3 = NewRow.insertCell(2);
-			var cel4 = NewRow.insertCell(3);
-
-			cel1.innerHTML = list1[x];
-			cel2.innerHTML = list2[x];
-			cel3.innerHTML = list3[x];
-			cel4.innerHTML = list4[x];
-
-			n++;
-			x++;
-		}
+    var list2 = [];
+    var list3 = [];
+    var list4 = [];
     
-    function ageFunction(x){
+    var n = 1;
+    var x = 0;
     
-    var db = new Date(x);  
+    function AddRow(){
+    
+    var AddRown = document.getElementById('formData');
+    var NewRow = AddRown.insertRow(n);
+    
+    list1[x] = form1.First_Name;
+    list2[x] = form1.Last_Name;
+    list3[x] = form1.Mobile_Number;
+    list4[x] = form1.Age;
+    
+    var cel1 = NewRow.insertCell(0);
+    var cel2 = NewRow.insertCell(1);
+    var cel3 = NewRow.insertCell(2);
+    var cel4 = NewRow.insertCell(3);
+    
+    cel1.innerHTML = list1[x];
+    cel2.innerHTML = list2[x];
+    cel3.innerHTML = list3[x];
+    cel4.innerHTML = list4[x];
+    n++;
+    x++;
+    }
+    
+    function ageFunction(y){
+    var db = new Date(y);  
     var diff = Date.now() - db.getTime();  
     var age_dt = new Date(diff);      
     var year = age_dt.getUTCFullYear();  
