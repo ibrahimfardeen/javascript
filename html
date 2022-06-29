@@ -2,12 +2,13 @@
 <form id = "x">
 First Name    : <input type="text" id="firstName" value="Test"> <br>
 Last Name     : <input type="text" id="lastName" value="User"> <br>
+Email         : <input type="text"  id="email" value="abc@def.com"> <br>
 Mobile Number : <input type="number" id="phnum" value="1234567890"> <br>
 Date of birth : <input type="date" id="dob" value="2002-04-12"> <br>
 </form>
 <br>
 
-<button type="submit" id = "y">Add</button>
+<button type="submit" id = "y" onclick="addData()">Add</button>
 
 <style>
 table, th, td {
@@ -19,12 +20,13 @@ table, th, td {
 <h2>Form Data</h2>
 
 <table style="width:100%" id = "formData">
-  <thead>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Mobile Number</th>
-					<th>Age</th>
-				</tr>
-			</thead>
+<thead>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Mobile Number</th>
+<th>Age</th>
+</tr>
+</thead>
 </table>
